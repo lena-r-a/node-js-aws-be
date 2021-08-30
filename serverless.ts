@@ -1,7 +1,5 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
-
 const serverlessConfiguration: AWS = {
   service: 'node-js-aws-be',
   frameworkVersion: '2',
@@ -15,6 +13,8 @@ const serverlessConfiguration: AWS = {
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
+    stage: 'dev',
+    region: 'eu-west-1',
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -25,7 +25,30 @@ const serverlessConfiguration: AWS = {
     lambdaHashingVersion: '20201221',
   },
   // import the function via paths
-  functions: { hello },
+  functions: { 
+    getAllProducts:{
+    handler: 'src/functions/getProductsList.getProductList',
+    events:[
+      {http:{
+          path: 'products',
+          method: 'get',
+          cors: true,
+      }
+        }
+      ]
+    },
+    getProductById:{
+      handler: 'src/functions/getProductsById.getProductById',
+      events:[
+        {http:{
+            path: 'products/{productId}',
+            method: 'get',
+            cors: true,
+        }
+          }
+        ]
+      }
+   },
 };
 
 module.exports = serverlessConfiguration;
