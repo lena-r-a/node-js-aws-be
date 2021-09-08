@@ -14,7 +14,12 @@
         "shouldStartNameWithService": true
       },
       "environment": {
-        "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+        "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+        "PG_HOST": "product-service-instance.cl3egs7zmgqn.eu-west-1.rds.amazonaws.com",
+        "PG_PORT": "5432",
+        "PG_DATABASE": "product_service",
+        "PG_USERNAME": "postgres",
+        "PG_PASSWORD": "1tyjLkuEqcWLBQAJKBIx"
       },
       "lambdaHashingVersion": "20201221",
       "versionFunctions": true,
@@ -95,6 +100,12 @@
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
               "LogGroupName": "/aws/lambda/node-js-aws-be-dev-getAllProducts"
+            }
+          },
+          "PostProductsLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/node-js-aws-be-dev-postProducts"
             }
           },
           "GetProductByIdLogGroup": {
@@ -187,7 +198,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/node-js-aws-be/dev/1630333222534-2021-08-30T14:20:22.534Z/node-js-aws-be.zip"
+                "S3Key": "serverless/node-js-aws-be/dev/1631094873753-2021-09-08T09:54:33.753Z/node-js-aws-be.zip"
               },
               "Handler": "src/functions/getProductsList.getProductList",
               "Runtime": "nodejs14.x",
@@ -196,7 +207,12 @@
               "Timeout": 6,
               "Environment": {
                 "Variables": {
-                  "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                  "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+                  "PG_HOST": "product-service-instance.cl3egs7zmgqn.eu-west-1.rds.amazonaws.com",
+                  "PG_PORT": "5432",
+                  "PG_DATABASE": "product_service",
+                  "PG_USERNAME": "postgres",
+                  "PG_PASSWORD": "1tyjLkuEqcWLBQAJKBIx"
                 }
               },
               "Role": {
@@ -210,6 +226,41 @@
               "GetAllProductsLogGroup"
             ]
           },
+          "PostProductsLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/node-js-aws-be/dev/1631094873753-2021-09-08T09:54:33.753Z/node-js-aws-be.zip"
+              },
+              "Handler": "src/functions/postProducts.postProducts",
+              "Runtime": "nodejs14.x",
+              "FunctionName": "node-js-aws-be-dev-postProducts",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+                  "PG_HOST": "product-service-instance.cl3egs7zmgqn.eu-west-1.rds.amazonaws.com",
+                  "PG_PORT": "5432",
+                  "PG_DATABASE": "product_service",
+                  "PG_USERNAME": "postgres",
+                  "PG_PASSWORD": "1tyjLkuEqcWLBQAJKBIx"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "PostProductsLogGroup"
+            ]
+          },
           "GetProductByIdLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
@@ -217,7 +268,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/node-js-aws-be/dev/1630333222534-2021-08-30T14:20:22.534Z/node-js-aws-be.zip"
+                "S3Key": "serverless/node-js-aws-be/dev/1631094873753-2021-09-08T09:54:33.753Z/node-js-aws-be.zip"
               },
               "Handler": "src/functions/getProductsById.getProductById",
               "Runtime": "nodejs14.x",
@@ -226,7 +277,12 @@
               "Timeout": 6,
               "Environment": {
                 "Variables": {
-                  "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                  "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+                  "PG_HOST": "product-service-instance.cl3egs7zmgqn.eu-west-1.rds.amazonaws.com",
+                  "PG_PORT": "5432",
+                  "PG_DATABASE": "product_service",
+                  "PG_USERNAME": "postgres",
+                  "PG_PASSWORD": "1tyjLkuEqcWLBQAJKBIx"
                 }
               },
               "Role": {
@@ -240,24 +296,34 @@
               "GetProductByIdLogGroup"
             ]
           },
-          "GetAllProductsLambdaVersionDSURyXOVJIAe6QK8O4wwfcxivO4zd5GZDjtkm8tU": {
+          "GetAllProductsLambdaVersionXOPovXBEAjtLFaUkOfKAx8EXIpCTQl5DffykqYztM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAllProductsLambdaFunction"
               },
-              "CodeSha256": "lxPVmIc+8eg+Jm/EFaDBj0BuBvQLizIHzRWS6GhNWBs="
+              "CodeSha256": "1xONJxDots4vbOnvkT7Tk3xpmt1xeiDHO9RC9ssxDY0="
             }
           },
-          "GetProductByIdLambdaVersion0QNfJBgINHI1WZtVaTZbhMqH45ruwZ2ou0Eux4XJY10": {
+          "PostProductsLambdaVersiongO3tbomY4xzR91eGtBHoH5ebkOAo99qlzgU0pzrKsoA": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PostProductsLambdaFunction"
+              },
+              "CodeSha256": "1xONJxDots4vbOnvkT7Tk3xpmt1xeiDHO9RC9ssxDY0="
+            }
+          },
+          "GetProductByIdLambdaVersionaljR10lzDMS6hHaxXQtPUq21TB0qSXPso640W3vCkQ8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetProductByIdLambdaFunction"
               },
-              "CodeSha256": "lxPVmIc+8eg+Jm/EFaDBj0BuBvQLizIHzRWS6GhNWBs="
+              "CodeSha256": "1xONJxDots4vbOnvkT7Tk3xpmt1xeiDHO9RC9ssxDY0="
             }
           },
           "ApiGatewayRestApi": {
@@ -329,7 +395,7 @@
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
                       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST,GET'"
                     },
                     "ResponseTemplates": {
                       "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
@@ -436,6 +502,57 @@
               "GetAllProductsLambdaPermissionApiGateway"
             ]
           },
+          "ApiGatewayMethodProductsPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {
+                "method.request.path.productId": true
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceProducts"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "PostProductsLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": [],
+              "RequestValidatorId": {
+                "Ref": "ApiGatewayNodejsawsbeRequestValidator"
+              }
+            },
+            "DependsOn": [
+              "PostProductsLambdaPermissionApiGateway"
+            ]
+          },
           "ApiGatewayMethodProductsProductidVarGet": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
@@ -482,7 +599,18 @@
               "GetProductByIdLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1630333210003": {
+          "ApiGatewayNodejsawsbeRequestValidator": {
+            "Type": "AWS::ApiGateway::RequestValidator",
+            "Properties": {
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ValidateRequestBody": true,
+              "ValidateRequestParameters": true,
+              "Name": "node-js-aws-be-dev | Validate request body and querystring parameters"
+            }
+          },
+          "ApiGatewayDeployment1631094845149": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -494,6 +622,7 @@
               "ApiGatewayMethodProductsOptions",
               "ApiGatewayMethodProductsProductidVarOptions",
               "ApiGatewayMethodProductsGet",
+              "ApiGatewayMethodProductsPost",
               "ApiGatewayMethodProductsProductidVarGet"
             ]
           },
@@ -503,6 +632,43 @@
               "FunctionName": {
                 "Fn::GetAtt": [
                   "GetAllProductsLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "PostProductsLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "PostProductsLambdaFunction",
                   "Arn"
                 ]
               },
@@ -584,16 +750,25 @@
           "GetAllProductsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAllProductsLambdaVersionDSURyXOVJIAe6QK8O4wwfcxivO4zd5GZDjtkm8tU"
+              "Ref": "GetAllProductsLambdaVersionXOPovXBEAjtLFaUkOfKAx8EXIpCTQl5DffykqYztM"
             },
             "Export": {
               "Name": "sls-node-js-aws-be-dev-GetAllProductsLambdaFunctionQualifiedArn"
             }
           },
+          "PostProductsLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PostProductsLambdaVersiongO3tbomY4xzR91eGtBHoH5ebkOAo99qlzgU0pzrKsoA"
+            },
+            "Export": {
+              "Name": "sls-node-js-aws-be-dev-PostProductsLambdaFunctionQualifiedArn"
+            }
+          },
           "GetProductByIdLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetProductByIdLambdaVersion0QNfJBgINHI1WZtVaTZbhMqH45ruwZ2ou0Eux4XJY10"
+              "Ref": "GetProductByIdLambdaVersionaljR10lzDMS6hHaxXQtPUq21TB0qSXPso640W3vCkQ8"
             },
             "Export": {
               "Name": "sls-node-js-aws-be-dev-GetProductByIdLambdaFunctionQualifiedArn"
@@ -760,7 +935,52 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "GetAllProductsLambdaVersionDSURyXOVJIAe6QK8O4wwfcxivO4zd5GZDjtkm8tU"
+        "versionLogicalId": "GetAllProductsLambdaVersionXOPovXBEAjtLFaUkOfKAx8EXIpCTQl5DffykqYztM"
+      },
+      "postProducts": {
+        "handler": "src/functions/postProducts.postProducts",
+        "events": [
+          {
+            "http": {
+              "path": "products",
+              "method": "post",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "request": {
+                "parameters": {
+                  "method.request.path.productId": true
+                }
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "node-js-aws-be-dev-postProducts",
+        "package": {
+          "artifact": ".serverless\\node-js-aws-be.zip"
+        },
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs14.x",
+        "vpc": {},
+        "versionLogicalId": "PostProductsLambdaVersiongO3tbomY4xzR91eGtBHoH5ebkOAo99qlzgU0pzrKsoA"
       },
       "getProductById": {
         "handler": "src/functions/getProductsById.getProductById",
@@ -800,7 +1020,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "GetProductByIdLambdaVersion0QNfJBgINHI1WZtVaTZbhMqH45ruwZ2ou0Eux4XJY10"
+        "versionLogicalId": "GetProductByIdLambdaVersionaljR10lzDMS6hHaxXQtPUq21TB0qSXPso640W3vCkQ8"
       }
     },
     "configValidationMode": "warn",
@@ -827,7 +1047,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/node-js-aws-be/dev/1630333222534-2021-08-30T14:20:22.534Z",
+    "artifactDirectoryName": "serverless/node-js-aws-be/dev/1631094873753-2021-09-08T09:54:33.753Z",
     "artifact": ""
   }
 }
