@@ -198,7 +198,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/node-js-aws-be/dev/1631094873753-2021-09-08T09:54:33.753Z/node-js-aws-be.zip"
+                "S3Key": "serverless/node-js-aws-be/dev/1631134894352-2021-09-08T21:01:34.352Z/node-js-aws-be.zip"
               },
               "Handler": "src/functions/getProductsList.getProductList",
               "Runtime": "nodejs14.x",
@@ -233,7 +233,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/node-js-aws-be/dev/1631094873753-2021-09-08T09:54:33.753Z/node-js-aws-be.zip"
+                "S3Key": "serverless/node-js-aws-be/dev/1631134894352-2021-09-08T21:01:34.352Z/node-js-aws-be.zip"
               },
               "Handler": "src/functions/postProducts.postProducts",
               "Runtime": "nodejs14.x",
@@ -268,7 +268,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/node-js-aws-be/dev/1631094873753-2021-09-08T09:54:33.753Z/node-js-aws-be.zip"
+                "S3Key": "serverless/node-js-aws-be/dev/1631134894352-2021-09-08T21:01:34.352Z/node-js-aws-be.zip"
               },
               "Handler": "src/functions/getProductsById.getProductById",
               "Runtime": "nodejs14.x",
@@ -296,34 +296,34 @@
               "GetProductByIdLogGroup"
             ]
           },
-          "GetAllProductsLambdaVersionXOPovXBEAjtLFaUkOfKAx8EXIpCTQl5DffykqYztM": {
+          "GetAllProductsLambdaVersionTbX6qQt1jbdLWUONjPjpaK8b8MXd8Vk8LJsntFl4Sw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAllProductsLambdaFunction"
               },
-              "CodeSha256": "1xONJxDots4vbOnvkT7Tk3xpmt1xeiDHO9RC9ssxDY0="
+              "CodeSha256": "z6OxWRTK9exVAzNcUHM+JIAZYjfJqq+a5FDy/fuIPDA="
             }
           },
-          "PostProductsLambdaVersiongO3tbomY4xzR91eGtBHoH5ebkOAo99qlzgU0pzrKsoA": {
+          "PostProductsLambdaVersionumPzwmJYMmAHPb7w4WvqSC3ZLLvaPNTjrQ7mUV2S4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PostProductsLambdaFunction"
               },
-              "CodeSha256": "1xONJxDots4vbOnvkT7Tk3xpmt1xeiDHO9RC9ssxDY0="
+              "CodeSha256": "z6OxWRTK9exVAzNcUHM+JIAZYjfJqq+a5FDy/fuIPDA="
             }
           },
-          "GetProductByIdLambdaVersionaljR10lzDMS6hHaxXQtPUq21TB0qSXPso640W3vCkQ8": {
+          "GetProductByIdLambdaVersionSyKu5MopmtcZjYt58zZllnsSBdnsxYh7UsgHzpqcs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetProductByIdLambdaFunction"
               },
-              "CodeSha256": "1xONJxDots4vbOnvkT7Tk3xpmt1xeiDHO9RC9ssxDY0="
+              "CodeSha256": "z6OxWRTK9exVAzNcUHM+JIAZYjfJqq+a5FDy/fuIPDA="
             }
           },
           "ApiGatewayRestApi": {
@@ -610,7 +610,7 @@
               "Name": "node-js-aws-be-dev | Validate request body and querystring parameters"
             }
           },
-          "ApiGatewayDeployment1631094845149": {
+          "ApiGatewayDeployment1631134870331": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -750,7 +750,7 @@
           "GetAllProductsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAllProductsLambdaVersionXOPovXBEAjtLFaUkOfKAx8EXIpCTQl5DffykqYztM"
+              "Ref": "GetAllProductsLambdaVersionTbX6qQt1jbdLWUONjPjpaK8b8MXd8Vk8LJsntFl4Sw"
             },
             "Export": {
               "Name": "sls-node-js-aws-be-dev-GetAllProductsLambdaFunctionQualifiedArn"
@@ -759,7 +759,7 @@
           "PostProductsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PostProductsLambdaVersiongO3tbomY4xzR91eGtBHoH5ebkOAo99qlzgU0pzrKsoA"
+              "Ref": "PostProductsLambdaVersionumPzwmJYMmAHPb7w4WvqSC3ZLLvaPNTjrQ7mUV2S4"
             },
             "Export": {
               "Name": "sls-node-js-aws-be-dev-PostProductsLambdaFunctionQualifiedArn"
@@ -768,7 +768,7 @@
           "GetProductByIdLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetProductByIdLambdaVersionaljR10lzDMS6hHaxXQtPUq21TB0qSXPso640W3vCkQ8"
+              "Ref": "GetProductByIdLambdaVersionSyKu5MopmtcZjYt58zZllnsSBdnsxYh7UsgHzpqcs"
             },
             "Export": {
               "Name": "sls-node-js-aws-be-dev-GetProductByIdLambdaFunctionQualifiedArn"
@@ -935,7 +935,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "GetAllProductsLambdaVersionXOPovXBEAjtLFaUkOfKAx8EXIpCTQl5DffykqYztM"
+        "versionLogicalId": "GetAllProductsLambdaVersionTbX6qQt1jbdLWUONjPjpaK8b8MXd8Vk8LJsntFl4Sw"
       },
       "postProducts": {
         "handler": "src/functions/postProducts.postProducts",
@@ -980,7 +980,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "PostProductsLambdaVersiongO3tbomY4xzR91eGtBHoH5ebkOAo99qlzgU0pzrKsoA"
+        "versionLogicalId": "PostProductsLambdaVersionumPzwmJYMmAHPb7w4WvqSC3ZLLvaPNTjrQ7mUV2S4"
       },
       "getProductById": {
         "handler": "src/functions/getProductsById.getProductById",
@@ -1020,7 +1020,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "GetProductByIdLambdaVersionaljR10lzDMS6hHaxXQtPUq21TB0qSXPso640W3vCkQ8"
+        "versionLogicalId": "GetProductByIdLambdaVersionSyKu5MopmtcZjYt58zZllnsSBdnsxYh7UsgHzpqcs"
       }
     },
     "configValidationMode": "warn",
@@ -1047,7 +1047,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/node-js-aws-be/dev/1631094873753-2021-09-08T09:54:33.753Z",
+    "artifactDirectoryName": "serverless/node-js-aws-be/dev/1631134894352-2021-09-08T21:01:34.352Z",
     "artifact": ""
   }
 }

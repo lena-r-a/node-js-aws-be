@@ -19,38 +19,24 @@ export const postProducts = async (event) => {
   
   const client = new Client(dbOptions);
   await client.connect();
+  const product = [,'Official Light Stick', 8];
+  
   try {
-    
-
-    const dmlResult = await client.query(
-        `insert into products (title, description, price) values
-        ('NCT Light Stick','NCT Official Light Stick', 0)`
-    );
+    if (!product[0]) {
+      return {
+          statusCode: 400,
+          headers: {
+              'Content-Type': 'application/json', 
+              'Access-Control-Allow-Origin': '*'
+          },
+          body: {
+              message: 'Product data is invalid'
+          }
+      }
+  };
+    const dmlResult = await client.query(`insert into products(title, description, price) values ('${product[0]}','${product[1]}','${product[2]}')`);
     console.log(dmlResult);
-
-    if (!dmlResult) {
-        return {
-            statusCode: 400,
-            headers: {
-                'Content-Type': 'application/json', 
-                'Access-Control-Allow-Origin': '*'
-            },
-            body: {
-                message: 'Product data is invalid'
-            }
-        }
-    }
-
-    // const {rows} = await client.query(`select * FROM products INNER JOIN stocks ON products.id = stocks.product_id`)
-    // console.log (rows);
-    // return {
-    //   statusCode: 200,
-    //   body: JSON.stringify(rows),
-    //   headers: {
-    //       'Access-Control-Allow-Origin': '*',
-    //       'Access-Control-Allow-Credentials': true,
-    //     },
-    // };
+    
   }
 
   catch (err) {
