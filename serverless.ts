@@ -21,10 +21,10 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
-      PG_HOST:'product-service-instance.cl3egs7zmgqn.eu-west-1.rds.amazonaws.com',
+      PG_HOST:'',
       PG_PORT: '5432',
-      PG_DATABASE: 'product_service',
-      PG_USERNAME: 'postgres',
+      PG_DATABASE: '',
+      PG_USERNAME: '',
       PG_PASSWORD: ''
     },
     lambdaHashingVersion: '20201221',
