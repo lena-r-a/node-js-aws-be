@@ -21,6 +21,12 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
+      PG_HOST:'',
+      PG_PORT: '5432',
+      PG_DATABASE: '',
+      PG_USERNAME: '',
+      PG_PASSWORD: ''
+
     },
     lambdaHashingVersion: '20201221',
   },
@@ -37,6 +43,19 @@ const serverlessConfiguration: AWS = {
         }
       ]
     },
+    postProducts:{
+      handler: 'src/functions/postProducts.postProducts',
+      events:[
+        {http:{
+            path: 'products',
+            method: 'post',
+            cors: true,
+            request: {
+              parameters: { paths: { productId: true } },}
+        }
+          }
+        ]
+      },
     getProductById:{
       handler: 'src/functions/getProductsById.getProductById',
       events:[
