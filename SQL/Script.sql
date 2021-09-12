@@ -14,11 +14,12 @@
 
 --drop table stocks ;
 --
---create table Stocks (
---	product_id uuid primary key default uuid_generate_v4(),
+-- create table Stocks (
+--	id uuid primary key default uuid_generate_v4(),
+--	product_id uuid,
 --    count integer,
 --    foreign key("product_id") references "products" ("id")
---);
+);
 
 --insert into products (title, description, price) values
 --('Directors Cut','SEVENTEEN Special Album - Directors Cut (SET Ver.) 2CD', 30.5),

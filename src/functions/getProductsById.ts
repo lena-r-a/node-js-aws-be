@@ -30,7 +30,16 @@ export const getProductById = async (event) => {
   }
 
   catch (err) {
-    console.log('error during database request',err)
+    return {
+      statusCode: 500,
+      headers: {
+          'Content-Type': 'application/json', 
+          'Access-Control-Allow-Origin': '*'
+      },
+      body: {
+          message: 'Bad request'
+      }
+     }
   }
 finally {
   client.end();
